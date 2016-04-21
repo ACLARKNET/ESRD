@@ -60,7 +60,8 @@ releasetest: python-package-release-test
 serve: django-serve
 static: django-static
 test: django-test
-vm: vm-up
+vm: vagrant-up
+vm-down: vagrant-suspend
 
 # Variables to configure defaults 
 COMMIT_MESSAGE="Update"
@@ -112,6 +113,16 @@ git-commit-edit-push:
 git-push:
 	git push
 
+# Heroku
+heroku-debug-on:
+	heroku config:set DEBUG=1
+heroku-debug-off:
+	heroku config:unset DEBUG
+heroku-push:
+	git push heroku
+heroku-shell:
+	heroku run bash
+
 # Misc
 help:
 	@echo "\nPlease run \`make\` with one of these targets:\n"
@@ -124,15 +135,17 @@ review:
 	open -a "Sublime Text 2" `find $(PROJECT) -name \*.py | grep -v __init__.py`\
         `find $(PROJECT) -name \*.html`
 
-# Heroku
-heroku-debug-on:
-	heroku config:set DEBUG=1
-heroku-debug-off:
-	heroku config:unset DEBUG
-heroku-push:
-	git push heroku
-heroku-shell:
-	heroku run bash
+# Node
+npm-init:
+	npm init
+npm-install:
+	npm install
+
+# Plone
+plone-install:
+	plock --no-cache .
+plone-serve:
+	bin/plone fg
 
 # Python
 python-clean-pyc:
@@ -170,13 +183,13 @@ sphinx-start:
 	sphinx-quickstart -q -p "Python Project" -a "Alex Clark" -v 0.0.1 doc
 
 # Vagrant
-vm-box-update:
+vagrant-box-update:
 	vagrant box update
-vm-clean:
+vagrant-clean:
 	vagrant destroy
-vm-down:
+vagrant-down:
 	vagrant suspend
-vm-init:
+vagrant-init:
 	vagrant init ubuntu/trusty64; vagrant up --provider virtualbox
-vm-up:
+vagrant-up:
 	vagrant up --provision
