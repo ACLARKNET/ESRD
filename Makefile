@@ -1,4 +1,4 @@
-# https://github.com/aclark4life/python-project
+# https://github.com/aclark4life/project-makefile
 #
 # The MIT License (MIT)
 #
@@ -45,10 +45,10 @@
 #ps
 #uninstall
 
-.DEFAULT_GOAL := commit
+.DEFAULT_GOAL := git-commit-auto-push
 .PHONY := install
 
-# Short target names to execute default targets
+# Short target names to execute default, multiple and preferred targets
 commit: git-commit-auto-push
 co: git-checkout-branches
 db: django-migrate django-su
@@ -60,6 +60,7 @@ releasetest: python-package-release-test
 serve: django-serve
 static: django-static
 test: django-test
+vm: vm-up
 
 # Variables to configure defaults 
 COMMIT_MESSAGE="Update"
@@ -167,3 +168,15 @@ python-package-release-test:
 # Sphinx
 sphinx-start:
 	sphinx-quickstart -q -p "Python Project" -a "Alex Clark" -v 0.0.1 doc
+
+# Vagrant
+vm-box-update:
+	vagrant box update
+vm-clean:
+	vagrant destroy
+vm-down:
+	vagrant suspend
+vm-init:
+	vagrant init ubuntu/trusty64; vagrant up --provider virtualbox
+vm-up:
+	vagrant up --provision
