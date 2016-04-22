@@ -201,3 +201,7 @@ vagrant-init:
 	vagrant init ubuntu/trusty64; vagrant up --provider virtualbox
 vagrant-up:
 	vagrant up --provision
+
+# ESRD
+remote:
+	git remote add heroku https://git.heroku.com/esrd.git
