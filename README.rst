@@ -1,4 +1,4 @@
 ESRD
 ====
 
-Plone Hosting Buildout
+    git remote add heroku https://git.heroku.com/esrd.git

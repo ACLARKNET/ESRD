@@ -142,10 +142,18 @@ npm-install:
 	npm install
 
 # Plone
+plone-heroku:
+	-@createuser -s plone > /dev/null 2>&1
+	-@createdb -U plone plone > /dev/null 2>&1
+	@export PORT=8080 && \
+		export USERNAME=admin && \
+		export PASSWORD=admin && \
+		bin/buildout -c heroku.cfg
 plone-install:
-	plock --no-cache .
+	plock --force --no-cache .
 plone-serve:
-	bin/plone fg
+	@echo "Zope about to handle requests here:\n\n\thttp://localhost:8080\n"
+	@bin/plone fg
 
 # Python
 python-clean-pyc:
