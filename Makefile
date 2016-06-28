@@ -212,5 +212,5 @@ vagrant-up:
 	vagrant up --provision
 
 # ESRD
-plone-rsync:
+plone-sync:
 	bin/buildout -c database.cfg
