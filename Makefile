@@ -40,12 +40,13 @@ freeze: python-pip-freeze
 heroku: heroku-push
 install: python-virtualenv python-pip-install
 lint: python-flake python-yapf python-wc
+migrate: django-migrate
 push: git-push
 plone-start: plone-init
 readme: python-package-readme-test
 release: python-package-release
 releasetest: python-package-release-test
-serve: django-serve
+serve: python-serve
 sphinx-start: sphinx-init
 static: django-static
 test: django-test
@@ -147,7 +148,8 @@ plone-init:
 plone-install:
 	$(MAKE) install
 	bin/buildout
-
+plone-db-sync:
+	bin/buildout -c database.cfg
 plone-serve:
 	@echo "Zope about to handle requests here:\n\n\thttp://localhost:8080\n"
 	@bin/plone fg
@@ -175,6 +177,9 @@ python-pip-freeze:
 	mv -f $(TMP)/requirements.txt .
 python-pip-install:
 	bin/pip install -r requirements.txt
+python-serve:
+	@echo "\n\tServing HTTP on http://0.0.0.0:8000\n"
+	python -m SimpleHTTPServer
 python-virtualenv:
 	virtualenv .
 python-yapf:
@@ -193,11 +198,6 @@ sphinx-serve:
 	@echo "\nServing HTTP on http://0.0.0.0:8085 ...\n"
 	pushd _build/html; python -m SimpleHTTPServer 8085; popd
 
-# Static
-static-serve:
-	@echo "\n\tServing HTTP on http://0.0.0.0:8000\n"
-	python -m SimpleHTTPServer
-
 # Vagrant
 vagrant-box-update:
 	vagrant box update
@@ -210,3 +210,7 @@ vagrant-init:
 	vagrant up --provider virtualbox
 vagrant-up:
 	vagrant up --provision
+
+# ESRD
+plone-rsync:
+	bin/buildout -c database.cfg
