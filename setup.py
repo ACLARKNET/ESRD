@@ -9,6 +9,7 @@ setup(
     classifiers=[],
     description='',
     entry_points={
+        'z3c.autoinclude.plugin': 'target = plone',
     },
     keywords='',
     license='',
