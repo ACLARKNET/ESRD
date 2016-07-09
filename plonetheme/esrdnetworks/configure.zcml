@@ -1,4 +1,4 @@
-<configure xmlns="http://namespaces.zope.org/zope" xmlns:browser="http://namespaces.zope.org/browser" xmlns:genericsetup="http://namespaces.zope.org/genericsetup" xmlns:plone="http://namespaces.plone.org/plone">
+<configure xmlns:cmf="http://namespaces.zope.org/cmf" xmlns:browser="http://namespaces.zope.org/browser" xmlns:genericsetup="http://namespaces.zope.org/genericsetup" xmlns:plone="http://namespaces.plone.org/plone" xmlns="http://namespaces.zope.org/zope">
   <cmf:registerDirectory name="skins" directory="skins" recursive="True" />
   <genericsetup:registerProfile directory="profiles/default" name="default" provides="Products.GenericSetup.interfaces.EXTENSION" />
   <plone:static directory="theme" type="theme" />
