@@ -57,3 +57,7 @@ dl.actionMenu a {
     #content a:link { color: &dtml-linkColor;; }
 </dtml-with>
 */
+
+#portal-column-content {
+    background: white;
+}
