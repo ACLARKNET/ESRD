@@ -20,6 +20,7 @@ a:link, a:visited, #content a:link, #content a:visited, dl.portlet a:link, dl.po
 }
 #portal-globalnav li a {
     background-color: #AD9A7C;
+    color: #0F1D50;
 }
 #portal-globalnav li a:hover {
     background-color: #0F1A50;
