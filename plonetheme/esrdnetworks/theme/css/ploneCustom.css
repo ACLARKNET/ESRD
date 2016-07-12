@@ -18,6 +18,16 @@ a:link, a:visited, #content a:link, #content a:visited, dl.portlet a:link, dl.po
 #portal-globalnav {
     background-color: #AD9A7C;
 }
+#portal-globalnav li a {
+    background-color: #AD9A7C;
+}
+#portal-globalnav li a:hover {
+    background-color: #0F1A50;
+}
+
+#portal-globalnav li.selected a:hover {
+    background-color: #0F1A50;
+}
 
 /* To change the edit bar color, uncomment the selectors below, and insert *
  * new color values:                                                        */
