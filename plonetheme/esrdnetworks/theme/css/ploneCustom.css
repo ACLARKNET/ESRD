@@ -11,10 +11,13 @@
 a:link, a:visited, #content a:link, #content a:visited, dl.portlet a:link, dl.portlet a:visited {
     color: red;
 }
-#portal-globalnav .selected a, #portal-globalnav a:hover {
-    background-color: red;
-}
 */
+#portal-globalnav .selected a, #portal-globalnav a:hover {
+    background-color: #0F1A50;
+}
+#portal-globalnav {
+    background-color: #AD9A7C;
+}
 
 /* To change the edit bar color, uncomment the selectors below, and insert *
  * new color values:                                                        */
@@ -60,4 +63,10 @@ dl.actionMenu a {
 
 #portal-column-content {
     background: white;
+    box-shadow: 12px 0 15px -4px black, -12px 0 8px -4px black; /* http://stackoverflow.com/a/11997074 */
 }
+#content {
+    padding: 0 10px 0 10px;
+}
+
+
