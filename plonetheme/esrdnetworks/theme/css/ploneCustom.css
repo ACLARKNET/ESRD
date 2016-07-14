@@ -30,6 +30,10 @@ a:link, a:visited, #content a:link, #content a:visited, dl.portlet a:link, dl.po
     background-color: #0F1A50;
 }
 
+ul#portal-globalnav li#portaltab-about-us.plain ul.submenu li a.state-published {
+    color: white;
+}
+
 /* To change the edit bar color, uncomment the selectors below, and insert *
  * new color values:                                                        */
 
