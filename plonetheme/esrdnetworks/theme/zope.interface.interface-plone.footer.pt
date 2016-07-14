@@ -1,0 +1,8 @@
+<div id="portal-footer" metal:define-macro="portal_footer" i18n:domain="plone">
+
+
+The Forum of ESRD Networks <br>
+Post Office Box 203
+Birchwood, Wisconsin  54817<br>
+Phone:  (715) 354-3735
+Fax:       1-888-571-2065</div>
