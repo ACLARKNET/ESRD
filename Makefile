@@ -213,6 +213,6 @@ vagrant-up:
 
 # ESRD
 deploy:
-	fab deploy -H esrd
+	fab -u ubuntu -H esrd deploy
 plone-sync:
 	bin/buildout -c database.cfg
