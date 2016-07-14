@@ -31,7 +31,7 @@ a:link, a:visited, #content a:link, #content a:visited, dl.portlet a:link, dl.po
 }
 
 #portal-globalnav li a.state-published {
-    color: white;
+    color: white !important;
 }
 
 /* To change the edit bar color, uncomment the selectors below, and insert *
