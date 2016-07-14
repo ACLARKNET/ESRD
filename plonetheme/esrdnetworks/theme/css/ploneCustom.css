@@ -30,7 +30,7 @@ a:link, a:visited, #content a:link, #content a:visited, dl.portlet a:link, dl.po
     background-color: #0F1A50;
 }
 
-ul#portal-globalnav li#portaltab-about-us.plain ul.submenu li a.state-published {
+#portal-globalnav li a.state-published {
     color: white;
 }
 
