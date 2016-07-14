@@ -37,6 +37,9 @@ a:link, a:visited, #content a:link, #content a:visited, dl.portlet a:link, dl.po
 #portal-globalnav li#portaltab-about-us.selected ul.submenu li a {
     background-color: gray;
 }
+#portal-globalnav li#portaltab-about-us.selected ul.submenu li a:hover {
+    background-color: #0F1A50;
+}
 
 /* To change the edit bar color, uncomment the selectors below, and insert *
  * new color values:                                                        */
