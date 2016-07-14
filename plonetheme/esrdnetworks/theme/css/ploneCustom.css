@@ -16,10 +16,10 @@ a:link, a:visited, #content a:link, #content a:visited, dl.portlet a:link, dl.po
     background-color: #0F1A50;
 }
 #portal-globalnav {
-    background-color: #AD9A7C;
+    background-color: gray;
 }
 #portal-globalnav li a {
-    background-color: #AD9A7C;
+    background-color: gray;
     color: #0F1D50;
 }
 #portal-globalnav li a:hover {
