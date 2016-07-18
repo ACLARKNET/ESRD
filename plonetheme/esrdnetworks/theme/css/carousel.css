@@ -4,7 +4,7 @@
 }
 .carousel-banner {
     display: none;
-    overflow: hidden;
+    overflow: hidden !important;
 }
 .carousel-text {
     background-color: #DDDDDD;
