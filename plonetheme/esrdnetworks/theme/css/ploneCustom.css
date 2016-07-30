@@ -1,17 +1,11 @@
-/* uncomment the below selector to get a fixed-width layout. *
- * 60em is equivalent to 960px in this case, and every       *
- * grid cell will be 40px with 10px padding.                 */
-
-/* #visual-portal-wrapper { width: 60em; margin: 0 auto; } */
-
-/* To change the link color (or the navigation link  background), uncomment *
- * the selectors below, and insert new color values:                        */
-
-/*
-a:link, a:visited, #content a:link, #content a:visited, dl.portlet a:link, dl.portlet a:visited {
-    color: red;
+body {
+    background: lightgray;
 }
-*/
+
+#portal-globalnav {
+    background: darkgray;
+}
+
 #portal-globalnav .selected a, #portal-globalnav a:hover {
     background-color: #0F1A50;
 }
@@ -40,49 +34,6 @@ a:link, a:visited, #content a:link, #content a:visited, dl.portlet a:link, dl.po
 #portal-globalnav li#portaltab-about-us.selected ul.submenu li a:hover {
     background-color: #0F1A50;
 }
-
-/* To change the edit bar color, uncomment the selectors below, and insert *
- * new color values:                                                        */
-
-/*
-#contentActionMenus,
-dl.actionMenu.activated dd,
-#content-views,
-#edit-bar {
-	background-color: blue;
-	border-color: blue;
-}
-dl.actionMenu a {
-	background-color: blue;
-}
-*/
-
-/* If you want to hide the path bar (aka. breadcrumbs), uncomment the below: */
-
-/*
-#breadcrumbs-you-are-here,
-#breadcrumbs-home,
-#breadcrumbs-current,
-#breadcrumbs-1 {
-    display: none;
-}
-*/
-
-/* If you want variables in the CSS (for example for colors that are used     *
- * in several locations), Plone has a built-in facility for this. An example  *
- * is shown below, the variables are defined in the file "base_properties",   *
- * and below we show the syntax for using them directly in the CSS file.      *
- * Note that you always need to surround the relevant part (or the entire CSS *
- * file) with the dtml-with statements for it to work.                        */
-
-/*
-
-/*
-<dtml-with base_properties>
-    #content a:link { color: &dtml-linkColor;; }
-</dtml-with>
-*/
-
 #portal-column-content {
     background: white;
     box-shadow: 12px 0 15px -4px black, -12px 0 8px -4px black; /* http://stackoverflow.com/a/11997074 */
@@ -90,5 +41,3 @@ dl.actionMenu a {
 #content {
     padding: 0 10px 0 10px;
 }
-
-

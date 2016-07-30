@@ -1,104 +1,76 @@
-<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <base href="http://localhost:8080/Plone/front-page" /><!--[if lt IE 7]></base><![endif]-->
-    <meta content="Congratulations! You have successfully installed Plone." name="description" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/dropdown-menu.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/carousel.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/member.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/base.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/public.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/columns.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/authoring.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/portlets.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/controlpanel.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/deprecated.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/navtree.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/invisibles.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/forms.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="++resource++plone.app.discussion.stylesheets/discussion.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="++resource++tinymce.stylesheets/tinymce.css" />
-    <link rel="stylesheet" type="text/css" media="print" href="css/print.css" />
-    <link rel="stylesheet" type="text/css" media="handheld, screen and (max-device-width: 480px)" href="css/mobile.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="++resource++plone.app.jquerytools.overlays.css" />
-    <style type="text/css" media="screen">@import url(++resource++plone.app.jquerytools.dateinput.css);</style>
-    <link rel="stylesheet" type="text/css" media="all" href="css/ploneCustom.css" />
-    <script type="text/javascript" src="++resource++plone.app.jquery.js"></script>
-    <script type="text/javascript" src="js/jquery-integration.js"></script>
-    <script type="text/javascript" src="++resource++plone.app.jquerytools.js"></script>
-    <script type="text/javascript" src="++resource++plone.app.jquerytools.dateinput.js"></script>
-    <script type="text/javascript" src="++resource++plone.app.jquerytools.overlayhelpers.js"></script>
-    <script type="text/javascript" src="++resource++plone.app.jquerytools.form.js"></script>
-    <script type="text/javascript" src="js/register_function.js"></script>
-    <script type="text/javascript" src="js/nodeutilities.js"></script>
-    <script type="text/javascript" src="js/cookie_functions.js"></script>
-    <script type="text/javascript" src="js/modernizr.js"></script>
-    <script type="text/javascript" src="js/livesearch.js"></script>
-    <script type="text/javascript" src="++resource++search.js"></script>
-    <script type="text/javascript" src="js/select_all.js"></script>
-    <script type="text/javascript" src="js/dragdropreorder.js"></script>
-    <script type="text/javascript" src="js/collapsiblesections.js"></script>
-    <script type="text/javascript" src="js/form_tabbing.js"></script>
-    <script type="text/javascript" src="js/popupforms.js"></script>
-    <script type="text/javascript" src="js/jquery.highlightsearchterms.js"></script>
-    <script type="text/javascript" src="js/first_input_focus.js"></script>
-    <script type="text/javascript" src="js/accessibility.js"></script>
-    <script type="text/javascript" src="js/styleswitcher.js"></script>
-    <script type="text/javascript" src="js/toc.js"></script>
-    <script type="text/javascript" src="js/collapsibleformfields.js"></script>
-    <script type="text/javascript" src="++resource++plone.app.discussion.javascripts/comments.js"></script>
-    <script type="text/javascript" src="js/dropdown.js"></script>
-    <script type="text/javascript" src="js/carousel.js"></script>
-    <script type="text/javascript" src="js/inline_validation.js"></script>
-    <script type="text/javascript" src="js/kss-bbb.js"></script>
-    <script type="text/javascript" src="js/table_sorter.js"></script>
-    <script type="text/javascript" src="js/calendar_formfield.js"></script>
-    <script type="text/javascript" src="js/formUnload.js"></script>
-    <script type="text/javascript" src="js/formsubmithelpers.js"></script>
-    <script type="text/javascript" src="js/unlockOnFormUnload.js"></script>
-    <script type="text/javascript" src="js/jquery.tinymce.js"></script>
-    <script type="text/javascript" src="js/tiny_mce_gzip.js"></script>
-    <title>Welcome to Plone &mdash; Site</title>
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
-    <link rel="apple-touch-icon" href="images/touch_icon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=0.6666, maximum-scale=1.0, minimum-scale=0.6666" />
-    <meta name="generator" content="Plone - http://plone.org" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/authoring.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/base.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/carousel.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/controlpanel.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/dropdown-menu.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/forms.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/member.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/portlets.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/public.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/reset.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/ploneCustom.css">
+<meta name="generator" content="Plone - http://plone.org">
+<script type="text/javascript" src="++resource++plone.app.jquery.js"></script>
+<script type="text/javascript" src="++resource++plone.app.jquerytools.dateinput.js"></script>
+<script type="text/javascript" src="++resource++plone.app.jquerytools.form.js"></script>
+<script type="text/javascript" src="++resource++plone.app.jquerytools.js"></script>
+<script type="text/javascript" src="++resource++plone.app.jquerytools.overlayhelpers.js"></script>
+<script type="text/javascript" src="++resource++search.js"></script>
+<script type="text/javascript" src="js/accessibility.js"></script>
+<script type="text/javascript" src="js/calendar_formfield.js"></script>
+<script type="text/javascript" src="js/carousel.js"></script>
+<script type="text/javascript" src="js/collapsibleformfields.js"></script>
+<script type="text/javascript" src="js/collapsiblesections.js"></script>
+<script type="text/javascript" src="js/cookie_functions.js"></script>
+<script type="text/javascript" src="js/dragdropreorder.js"></script>
+<script type="text/javascript" src="js/dropdown.js"></script>
+<script type="text/javascript" src="js/first_input_focus.js"></script>
+<script type="text/javascript" src="js/formUnload.js"></script>
+<script type="text/javascript" src="js/form_tabbing.js"></script>
+<script type="text/javascript" src="js/formsubmithelpers.js"></script>
+<script type="text/javascript" src="js/inline_validation.js"></script>
+<script type="text/javascript" src="js/jquery-integration.js"></script>
+<script type="text/javascript" src="js/jquery.highlightsearchterms.js"></script>
+<script type="text/javascript" src="js/jquery.tinymce.js"></script>
+<script type="text/javascript" src="js/livesearch.js"></script>
+<script type="text/javascript" src="js/modernizr.js"></script>
+<script type="text/javascript" src="js/nodeutilities.js"></script>
+<script type="text/javascript" src="js/popupforms.js"></script>
+<script type="text/javascript" src="js/register_function.js"></script>
+<script type="text/javascript" src="js/select_all.js"></script>
+<script type="text/javascript" src="js/styleswitcher.js"></script>
+<script type="text/javascript" src="js/table_sorter.js"></script>
+<script type="text/javascript" src="js/tiny_mce_gzip.js"></script>
+<script type="text/javascript" src="js/toc.js"></script>
+<script type="text/javascript" src="js/unlockOnFormUnload.js"></script>
+<title></title>
 </head>
-<body class="template-document_view portaltype-document site-Plone section-front-page icons-on userrole-manager userrole-authenticated userrole-owner" dir="ltr">
-    <div id="visual-portal-wrapper">
-        <div id="portal-top" class="row">
-            <div class="cell width-full position-0">
-                <div id="portal-header">
-                    <p class="hiddenStructure">
-                        <a accesskey="2" href="http://localhost:8080/Plone#content">Skip to content.</a> |
-                        <a accesskey="6" href="http://localhost:8080/Plone#portal-globalnav">Skip to navigation</a>
-                    </p>
-                    <div id="portal-personaltools-wrapper">
-                    </div>
-                    <div id="portal-searchbox"></div>
-                    <span id="diazo_branding">
-                        <h1>Forum of ESRD Networks</h1>
-                        <p>Advocating for the organizations that monitor the quality of chronic kidney disease, <br> dialysis and kidney transplant care in the United states</p>
-                    </span>
-                    <p class="hiddenStructure">Navigation</p>
-                    <ul id="portal-globalnav"></ul>
-                </div>
-            </div>
-        </div>
-        <div id="portal-columns" class="row">
-            <div id="portal-column-one"></div>
-            <div id="portal-column-content"></div> 
-            <div id="portal-column-two"></div>
-        </div>
-        <div id="portal-footer-wrapper" class="row">
-            <div class="cell width-full position-0">
-                <div id="portal-footer"></div>
-                <div id="portal-colophon"></div>
-                <ul id="portal-siteactions"></ul>
-            </div>
-        </div>
+<body> 
+<div id="visual-portal-wrapper" class="container">
+  <div id="portal-top" class="row">
+    <div> 
+      <div id="portal-header">
+        <div id="portal-personaltools-wrapper"></div>
+        <div id="portal-searchbox"></div>
+        <a id="portal-logo"></a>
+        <ul id="portal-globalnav"></ul>
+      </div>
     </div>
+  </div>
+  <div id="portal-columns" class="row">
+    <div id="portal-column-content" class="col-lg-10"></div>
+    <div id="portal-column-two" class="col-lg-2"></div>
+  </div>
+  <div id="portal-footer-wrapper" class="row">
+    <div class="col-lg-12">
+      <div id="portal-footer"></div>
+      <div id="portal-colophon"></div>
+      <ul id="portal-siteactions"></ul>
+    </div>
+  </div>
+</div>
 </body>
 </html>

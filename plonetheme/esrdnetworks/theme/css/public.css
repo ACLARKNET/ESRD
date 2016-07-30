@@ -20,7 +20,7 @@
 
 body {
     font: 100% Arial, FreeSans, sans-serif;
-    background: lightgray;
+    background: White;
     color: Black;
     /* width: 58em; margin: 1em auto; */
 }
@@ -118,7 +118,7 @@ sub {
 
 #portal-globalnav {
     clear: both;
-    font-size: 90%;
+    font-size: 80%;
     background: #ddd;
     /* ensure top navigation dont touches portlets, content etc.. #10491 */
     margin: 0 0 1em 0;
@@ -143,7 +143,7 @@ sub {
 }
 #portal-globalnav .selected a:hover {
     background: #ddd;
-    color: white;
+    color: #205c90;
 }
 
 #portal-personaltools {
