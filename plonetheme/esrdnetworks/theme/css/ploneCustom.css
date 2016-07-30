@@ -26,7 +26,7 @@ body {
 
 #portal-globalnav li a {
     color: white !important;
-    font-size: 150%; 
+    font-size: 125%; 
 }
 
 #portal-globalnav li#portaltab-about-us.selected ul.submenu li a {
