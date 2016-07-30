@@ -25,7 +25,7 @@ body {
 }
 
 #portal-globalnav li a {
-    color: white;
+    color: white !important;
     font-size: 150%; 
 }
 
