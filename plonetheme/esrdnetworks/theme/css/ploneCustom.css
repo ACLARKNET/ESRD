@@ -64,3 +64,9 @@ body {
 #portal-personaltools a {
     color: #616161;
 }
+.portletHeader {
+    background: #2FAADD !important;
+}
+.portletHeader a {
+    color: white !important;
+}
