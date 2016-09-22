@@ -3,7 +3,7 @@ body {
 }
 
 #portal-globalnav {
-    background: darkgray;
+    background: #CCCCCC !important;
 }
 
 #portal-globalnav .selected a, #portal-globalnav a:hover {
@@ -13,7 +13,7 @@ body {
     background-color: gray;
 }
 #portal-globalnav li a {
-    background-color: gray;
+    background-color: #A5A5A5;
     color: white;
 }
 #portal-globalnav li a:hover {
