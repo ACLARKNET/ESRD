@@ -58,3 +58,9 @@ body {
 #portal-footer {
     background: white;
 }
+#portal-personaltools {
+    background: #EBEBEB;
+}
+#portal-personaltools a {
+    color: #616161;
+}
