@@ -7,7 +7,7 @@ body {
 }
 
 #portal-globalnav .selected a, #portal-globalnav a:hover {
-    background-color: #0F1A50;
+    background-color: #412C83;
 }
 #portal-globalnav {
     background-color: gray;
@@ -17,11 +17,11 @@ body {
     color: white;
 }
 #portal-globalnav li a:hover {
-    background-color: #0F1A50;
+    background-color: #412C83;
 }
 
 #portal-globalnav li.selected a:hover {
-    background-color: #0F1A50;
+    background-color: #412C83;
 }
 
 #portal-globalnav li a {
@@ -33,7 +33,7 @@ body {
     background-color: gray;
 }
 #portal-globalnav li#portaltab-about-us.selected ul.submenu li a:hover {
-    background-color: #0F1A50;
+    background-color: #412C83;
 }
 #portal-column-content {
     background: white;
