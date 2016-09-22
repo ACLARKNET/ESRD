@@ -42,16 +42,19 @@ body {
 #content {
     padding: 0 10px 0 10px;
 }
-
 #logo {
     padding-left: 0;
 }
-
 #logo img {
     padding: 0;
     margin: 0 0 2em 0;
 }
-
 #slogan strong {
     color: #626262;
+}
+#portal-columns {
+    background: #EBEBEB;
+}
+#portal-footer {
+    background: white;
 }
