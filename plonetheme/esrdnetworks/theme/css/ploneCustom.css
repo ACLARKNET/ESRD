@@ -85,3 +85,7 @@ body {
 .portletHeader a {
     color: white !important;
 }
+#portal-column-two {
+    margin: 0 0 0 23px;
+    padding: 7px 0 0 0;
+}
