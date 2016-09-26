@@ -37,7 +37,10 @@ body {
 }
 #portal-column-content {
     background: white;
-    box-shadow: 12px 0 15px -4px black, -12px 0 8px -4px black; /* http://stackoverflow.com/a/11997074 */
+    /* box-shadow: 12px 0 15px -4px black, -12px 0 8px -4px black; http://stackoverflow.com/a/11997074 */
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow */
+    box-shadow: -4px 4px 4px #A5A5A5;
+    margin: 1em 0 0 2em;
 }
 #content {
     padding: 0 10px 0 10px;
