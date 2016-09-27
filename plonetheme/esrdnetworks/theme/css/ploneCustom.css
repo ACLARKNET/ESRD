@@ -50,7 +50,7 @@ body {
 }
 #logo img {
     padding: 0;
-    margin: 2em 0 2em 0;
+    margin: 0 0 2em 0;
 }
 #branding {
     color: #626262;
@@ -88,4 +88,11 @@ body {
 #portal-column-two {
     margin: 0 0 0 23px;
     padding: 7px 0 0 0;
+}
+
+@media (max-width: 767px) {
+    #logo img {
+        padding: 0;
+        margin: 2em 0 2em 2em;
+    }
 }
