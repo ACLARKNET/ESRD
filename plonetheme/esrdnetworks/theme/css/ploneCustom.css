@@ -89,7 +89,7 @@ body {
     margin: 0 0 0 23px;
     padding: 7px 0 0 0;
 }
-
+/* http://stackoverflow.com/a/19827288 */
 @media (max-width: 767px) {
     #logo img {
         padding: 0;
