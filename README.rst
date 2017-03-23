@@ -15,3 +15,12 @@ Ubuntu
         tk8.6-dev zlib1g-dev -y
     sudo aptitude update
     sudo aptitude upgrade -y
+
+Plone
+-----
+
+::
+
+    git clone git@github.com:ACLARKNET/ESRD.git
+    sudo mv ESRD /srv/
+    cd /srv/ESRD
