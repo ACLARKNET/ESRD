@@ -391,5 +391,5 @@ pack: webpack  # Alias
 # esrd
 .DEFAULT_GOAL=esrd
 esrd:
-	$(MAKE) git-commit-auto-push
+	-$(MAKE) git-commit-auto-push
 	bin/buildout
