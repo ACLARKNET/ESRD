@@ -387,3 +387,9 @@ webpack-init:
 webpack:
 	./node_modules/.bin/webpack
 pack: webpack  # Alias
+
+# esrd
+.DEFAULT_GOAL=esrd
+esrd:
+	$(MAKE) git-commit-auto-push
+	bin/buildout
