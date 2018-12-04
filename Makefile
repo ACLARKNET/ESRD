@@ -392,4 +392,7 @@ pack: webpack  # Alias
 .DEFAULT_GOAL=esrd
 esrd:
 	-$(MAKE) git-commit-auto-push
+
+install:
+	$(MAKE) python-install
 	bin/buildout
