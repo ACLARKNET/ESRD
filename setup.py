@@ -1,6 +1,7 @@
 from setuptools import find_packages
 from setuptools import setup
 import os
+import io
 
 
 VERSION='0.0.1'
