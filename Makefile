@@ -396,3 +396,7 @@ webpack-init:
 webpack:
 	./node_modules/.bin/webpack
 pack: webpack  # Alias
+
+# ESRD
+d:
+	eb deploy	
