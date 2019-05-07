@@ -1,6 +1,8 @@
 ESRD
 ====
 
+.. image:: screenshot.png
+
 Ubuntu
 ------
 
