@@ -3,6 +3,12 @@ from setuptools import setup
 
 VERSION='0.0.1'
 
+
+# Via https://github.com/pypa/setuptools/blob/master/setup.py#L52
+readme_path = os.path.join(here, 'README.rst')
+with io.open(readme_path, encoding='utf-8') as readme_file:
+    long_description = readme_file.read()
+
 setup(
     author='Alex Clark',
     author_email='aclark@aclark.net',
@@ -17,7 +23,7 @@ setup(
     install_requires=[
         'setuptools',
     ],
-    long_description=open('README.rst').read() + '\n' + open('CHANGES.rst').read(),
+    long_description=long_description,
     name='plonetheme.esrdnetworks',
     namespace_packages=[
         'plonetheme',
