@@ -2,7 +2,9 @@ from setuptools import find_packages
 from setuptools import setup
 import os
 
+
 VERSION='0.0.1'
+here = os.path.dirname(__file__)
 
 
 # Via https://github.com/pypa/setuptools/blob/master/setup.py#L52
