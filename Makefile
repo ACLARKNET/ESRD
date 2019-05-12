@@ -400,3 +400,7 @@ pack: webpack  # Alias
 # ESRD
 d:
 	eb deploy	
+
+eb-create:
+	eb create dev-vpc --vpc.id vpc-9dc18be5 --vpc.elbsubnets subnet-7e1dae23 --vpc.ec2subnets subnet-7e1dae23 --vpc.securitygroup sg-0b545a7e
+esrd-eb-create: eb-create
