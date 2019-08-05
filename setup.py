@@ -24,9 +24,9 @@ setup(
     keywords='',
     license='',
     include_package_data=True,
-#     install_requires=[
-#         'setuptools',
-#     ],
+    install_requires=[
+        'setuptools',
+    ],
     long_description=long_description,
     name='plonetheme.esrdnetworks',
     namespace_packages=[
