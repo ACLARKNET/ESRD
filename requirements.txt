@@ -1,2 +1,2 @@
-Fabric
-zc.buildout
+zc.buildout==1.7.1
+setuptools==1.4.2
