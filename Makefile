@@ -1,8 +1,8 @@
-# https://github.com/aclark4life/project-makefile
+# https://github.com/aclark4life/universal-project-makefile
 #
 # The MIT License (MIT)
 #
-# Copyright (c) 2016 Alex Clark
+# Copyright (c) 2019 Alex Clark
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -22,6 +22,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+#-------------------------------------------------------------------------------
+
 # Default Goal
 # 
 # https://www.gnu.org/software/make/manual/html_node/Goals.html
@@ -35,7 +37,9 @@
 # of the default goal from within your makefile using the .DEFAULT_GOAL variable
 # (see Other Special Variables). 
 
-.DEFAULT_GOAL=git-commit-auto-push
+.DEFAULT_GOAL=usage
+
+#-------------------------------------------------------------------------------
 
 # Variables
 
@@ -45,12 +49,21 @@
 #
 # https://www.gnu.org/software/make/manual/html_node/Using-Variables.html
 
-APP=app
-DOC=doc
-NAME="Alex Clark"
-PROJECT=project
-TMP:=$(shell echo `tmp`)
+TMPDIR := $(shell mktemp -d)  # https://stackoverflow.com/a/589260/185820
 UNAME:=$(shell uname)
+
+APP=app  # Django
+DOC=doc  # Sphinx
+PROJECT=project  # Django
+# Git
+COMMIT_MESSAGE="Update"
+REMOTES=`\
+	git branch -a |\
+	grep remote   |\
+	grep -v HEAD  |\
+	grep -v master`  # http://unix.stackexchange.com/a/37316
+
+#-------------------------------------------------------------------------------
 
 # Rules
 #
@@ -60,16 +73,24 @@ UNAME:=$(shell uname)
 # create or update the target. 
 #
 # https://www.gnu.org/software/make/manual/html_node/Rules.html
+
+#-------------------------------------------------------------------------------
+
+# Universal Project Makefile Concepts
 #
-# (Note I am not using Make's implicit rules to remake files, because there are no
-# files to manage, just tasks to perform. Also note the terms "Alias" and "Chain"
-# in the comments below are mine, not Make's. In particular, I'm not referring to
-# Make's Implicit Chaining feature. Rather, a "Chain" as I've defined it is a series
-# of prerequisites required to satisfy the target. And an "Alias" is a target that
-# only exists to define a shorter name for its prerequisite.)
+# "Alias" - A new target definition that only exists to create a shorter target 
+# name for another target that already exists.
+#
+# "Multi-target Alias" - Like an "Alias", but with multiple targets.
+#
+# "BBB" - For backwards compatibility.
+
+#-------------------------------------------------------------------------------
+
+# Targets
 
 # ABlog
-ablog: ablog-clean ablog-install ablog-init ablog-build ablog-serve  # Chain
+ablog: ablog-clean ablog-install ablog-init ablog-build ablog-serve  # Multi-target Alias
 ablog-clean:
 	-rm conf.py index.rst
 ablog-init:
@@ -77,7 +98,7 @@ ablog-init:
 ablog-install:
 	@echo "ablog\n" > requirements.txt
 	@$(MAKE) python-virtualenv
-	@$(MAKE) python-install
+	@$(MAKE) pip-install
 ablog-build:
 	ablog build
 ablog-serve:
@@ -110,14 +131,13 @@ django-init:
 	@$(MAKE) django-settings
 	git add $(PROJECT)
 	git add manage.py
-	@$(MAKE) git-commit-auto-push
+	@$(MAKE) commit-push
 django-install:
 	@echo "Django\ndj-database-url\npsycopg2\n" > requirements.txt
-	@$(MAKE) python-install
+	@$(MAKE) pip-install
 	@$(MAKE) freeze
 	-git add requirements.txt
-	-@$(MAKE) git-commit-auto-push
-django-lint: django-yapf  # Alias
+	-@$(MAKE) commit-push
 django-migrate:
 	python manage.py migrate
 django-migrations:
@@ -138,16 +158,15 @@ django-static:
 	python manage.py collectstatic --noinput
 django-su:
 	python manage.py createsuperuser
-django-yapf:
-	-yapf -i *.py
-	-yapf -i -e $(PROJECT)/urls.py $(PROJECT)/*.py  # Don't format urls.py
-	-yapf -i $(PROJECT)/$(APP)/*.py
+django-loaddata:
+	python manage.py loaddata
 graph: django-graph
 migrate: django-migrate  # Alias
 migrations: django-migrations  # Alias
 static: django-static  # Alias
 su: django-su  # Alias
 test: django-test  # Alias
+loaddata: django-loaddata  # Alias
 
 # Elastic Beanstalk
 eb-init: 
@@ -156,29 +175,26 @@ eb-create:
 	eb create
 
 # Git
-MESSAGE="Update"
-REMOTES=`\
-	git branch -a |\
-	grep remote   |\
-	grep -v HEAD  |\
-	grep -v master`  # http://unix.stackexchange.com/a/37316
-co: git-checkout-remotes  # Alias
-commit: git-commit  # Alias
-commit-auto: git-commit-auto-push  # Alias
-commit-edit: git-commit-edit-push  # Alias
-git-commit: git-commit-auto  # Alias
-git-commit-auto-push: git-commit-auto git-push  # Chain
-git-commit-edit-push: git-commit-edit git-push  # Chain
-push: git-push
-git-checkout-remotes:
+git-checkout:
 	-for i in $(REMOTES) ; do \
         git checkout -t $$i ; done
-git-commit-auto:
-	git commit -a -m $(MESSAGE)
+git-commit:
+	git commit -a -m $(COMMIT_MESSAGE)
 git-commit-edit:
 	git commit -a
 git-push:
 	git push
+git-push-up:
+	git push --set-upstream origin master
+commit: git-commit  # Alias
+c: commit-push  # Alias
+cp: commit-push  # Alias
+push: git-push  # Alias
+p: push  # Alias
+commit-push: git-commit git-push  # Multi-target Alias
+commit-edit-push: git-commit-edit git-push  # Multi-target Alias
+git-commit-auto-push: commit-push  # BBB
+git-commit-edit-push: commit-edit-push  # BBB
 
 # Grunt
 grunt: grunt-init grunt-serve
@@ -193,16 +209,14 @@ grunt-serve:
 	@echo "\nServing HTTP on http://0.0.0.0:9000 ...\n"
 	grunt serve
 
-# Help
-h: help  # Alias
-he: help  # Alias
-help:
+# List examples
+list-examples:
 	@$(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null | awk -v RS= -F:\
         '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}'\
         | sort | egrep -v -e '^[^[:alnum:]]' -e '^$@$$' | xargs | tr ' ' '\n' | awk\
-        '{print "    - "$$0}' | less  # http://stackoverflow.com/a/26339924
-upstream:
-	git push --set-upstream origin master
+        '{print "make "$$0}'  # http://stackoverflow.com/a/26339924
+help: list-examples  # Alias
+h: list-examples  # Alias
 
 # Heroku
 heroku: heroku-init
@@ -229,10 +243,18 @@ heroku-web-on:
 heroku-web-off:
 	heroku ps:scale web=0
 
+# Usage
+usage:
+	@echo "Universal Project Makefile"
+	@echo "Usage:\n"
+	@echo "\tmake <target>\n"
+	@echo "Examples:\n"
+	@echo "\tmake list-examples"
+
 # Makefile
 make:
 	git add Makefile
-	@$(MAKE) git-commit-auto-push
+	@$(MAKE) commit-push
 
 # Misc
 
@@ -240,39 +262,25 @@ pdf:
 	rst2pdf README.rst
 
 # Node Package Manager
-npm: npm-init npm-install
 npm-init:
 	npm init -y
 npm-install:
 	npm install
+npm-run:
+	npm run
 
 # Pip
 freeze: pip-freeze
 pip-freeze:
-	pip freeze | sort > $(TMP)/requirements.txt
-	mv -f $(TMP)/requirements.txt .
-
-# Plone
-plone: plone-install plone-init plone-serve  # Chain
-plone-heroku:
-	-@createuser -s plone > /dev/null 2>&1
-	-@createdb -U plone plone > /dev/null 2>&1
-	@export PORT=8080 && \
-		export USERNAME=admin && \
-		export PASSWORD=admin && \
-		buildout -c heroku.cfg
-plone-install:
-	@echo plock > requirements.txt
-	@$(MAKE) python-virtualenv
-	@$(MAKE) python-install
-plone-init:
-	plock --force --no-cache --no-virtualenv .
-plone-serve:
-	@echo "\n\tServing HTTP on http://0.0.0.0:8080\n"
-	@plone fg
+	pip freeze | sort > $(TMPDIR)/requirements.txt
+	mv -f $(TMPDIR)/requirements.txt .
+pip-upgrade:
+	cat requirements.txt | awk -F \= '{print $1}' > $(TMPDIR)/requirements.txt
+	mv -f $(TMPDIR)/requirements.txt .
+	pip install -U -r requirements.txt
+	$(MAKE) pip-freeze
 
 # Python
-install: python-install  # Alias
 lint: python-lint  # Alias
 serve: python-serve  # Alias
 python-clean:
@@ -281,9 +289,9 @@ python-flake:
 	-flake8 *.py
 	-flake8 $(PROJECT)/*.py
 	-flake8 $(PROJECT)/$(APP)/*.py
-python-install:
+pip-install:
 	pip install -r requirements.txt
-python-lint: python-yapf python-flake python-wc  # Chain
+python-lint: python-black python-flake python-wc  # Multi-target Alias
 python-serve:
 	@echo "\n\tServing HTTP on http://0.0.0.0:8000\n"
 	python -m SimpleHTTPServer
@@ -295,10 +303,13 @@ python-virtualenv-3-6:
 	virtualenv --python=python3.6 .
 python-virtualenv-3-7:
 	virtualenv --python=python3.7 .
+python-virtualenv: python-virtualenv-3-7  # Alias
 python-yapf:
 	-yapf -i *.py
 	-yapf -i $(PROJECT)/*.py
 	-yapf -i $(PROJECT)/$(APP)/*.py
+python-black:
+	black $(PROJECT)
 python-wc:
 	-wc -l *.py
 	-wc -l $(PROJECT)/*.py
@@ -323,7 +334,7 @@ package-init:
 	touch $(PROJECT)/$(APP)/__init__.py
 	touch $(PROJECT)/__init__.py
 	@echo "setup(){}" > setup.py
-package-lint: package-check-manifest package-pyroma  # Chain
+package-lint: package-check-manifest package-pyroma  # Multi-target Alias
 package-pyroma:
 	pyroma .
 package-readme:
@@ -345,7 +356,7 @@ readme:
 	@echo ================================================================================ >> README.rst
 	echo "Done."
 	git add README.rst
-	@$(MAKE) git-commit-auto-push
+	@$(MAKE) commit-push
 
 # Review
 review:
@@ -360,10 +371,10 @@ endif
 sphinx-build:
 	sphinx-build -b html -d $(DOC)/_build/doctrees $(DOC) $(DOC)/_build/html
 sphinx-init:
-	sphinx-quickstart -q -p $(PROJECT)-$(APP) -a $(NAME) -v 0.0.1 $(DOC)
+	sphinx-quickstart -q -p $(PROJECT)-$(APP) -a $(USER) -v 0.0.1 $(DOC)
 sphinx-install:
 	@echo "Sphinx\n" > requirements.txt
-	@$(MAKE) python-install
+	@$(MAKE) pip-install
 # https://stackoverflow.com/a/32302366/185820
 sphinx-serve:
 	@echo "\n\tServing HTTP on http://0.0.0.0:8000\n"
@@ -375,7 +386,7 @@ ubuntu-update:
 	sudo aptitude upgrade -y
 
 # Vagrant
-vagrant: vagrant-clean vagrant-init vagrant-up  # Chain
+vagrant: vagrant-clean vagrant-init vagrant-up  # Multi-target Alias
 vm: vagrant  # Alias
 vagrant-clean:
 	-rm Vagrantfile
@@ -391,17 +402,21 @@ vagrant-update:
 
 # Webpack
 webpack-init:
-	touch app.js
-	echo "module.exports = { entry: './app.js', output: { filename: 'bundle.js' } }" > webpack.config.js
-webpack:
-	./node_modules/.bin/webpack
-pack: webpack  # Alias
+	touch index.js
+	echo "module.exports = { entry: './index.js', output: { filename: 'bundle.js' } }" > webpack.config.js
+webpack-install:
+	npm install --save-dev webpack
+webpack-run:
+	npm run bundle  # Requires bundle script in package.json to call webpack
+pack: webpack-run
 
-# ESRD
-d:
-	eb deploy	
-eb-create:
-	eb create esrd-dev --vpc.elbpublic --instance_type t2.nano --elb-type application --vpc.id vpc-0613098313df389d0 --vpc.elbsubnets subnet-0bedc7143406a62e1,subnet-0bad1d16e346ea19c --vpc.ec2subnets subnet-0bedc7143406a62e1 --vpc.securitygroup sg-04f4e69195489fa32
-esrd-eb-create: eb-create
-create: eb-create
-c: eb-create
+#-------------------------------------------------------------------------------
+
+# Custom
+# 
+#.DEFAULT_GOAL=commit-push
+#install: npm-install
+#run: npm-run
+
+# eb create esrd-dev --vpc.elbpublic --instance_type t2.nano --elb-type application --vpc.id vpc-0613098313df389d0 --vpc.elbsubnets subnet-0bedc7143406a62e1,subnet-0bad1d16e346ea19c --vpc.ec2subnets subnet-0bedc7143406a62e1 --vpc.securitygroup sg-04f4e69195489fa32
+
