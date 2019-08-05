@@ -425,3 +425,6 @@ pack: webpack-run
 
 eb:
 	buildout -c eb.cfg
+
+zip:
+	python setup.py sdist --formats=zip
