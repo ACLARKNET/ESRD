@@ -173,6 +173,9 @@ eb-init:
 	eb init -i
 eb-create:
 	eb create
+eb-deploy:
+	eb deploy
+d: eb-deploy
 
 # Git
 git-checkout:
@@ -419,4 +422,3 @@ pack: webpack-run
 #run: npm-run
 
 # eb create esrd-dev --vpc.elbpublic --instance_type t2.nano --elb-type application --vpc.id vpc-0613098313df389d0 --vpc.elbsubnets subnet-0bedc7143406a62e1,subnet-0bad1d16e346ea19c --vpc.ec2subnets subnet-0bedc7143406a62e1 --vpc.securitygroup sg-04f4e69195489fa32
-
