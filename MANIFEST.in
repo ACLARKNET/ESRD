@@ -1,0 +1,13 @@
+include *.rst
+include *.txt
+include Makefile
+include buildout.cfg
+include heroku.cfg
+recursive-include plonetheme *.cfg
+recursive-include plonetheme *.css
+recursive-include plonetheme *.html
+recursive-include plonetheme *.jpg
+recursive-include plonetheme *.js
+recursive-include plonetheme *.png
+recursive-include plonetheme *.xml
+recursive-include plonetheme *.zcml
