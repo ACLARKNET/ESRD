@@ -50,3 +50,15 @@ NGINX
             proxy_cache_bypass $http_upgrade;
         }
     }
+
+
+EB
+--
+
+::
+
+      RewriteEngine On
+      RewriteCond %{HTTP:X-Forwarded-Proto} !https
+      RewriteCond %{HTTP_USER_AGENT} !ELB-HealthChecker
+      RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+
