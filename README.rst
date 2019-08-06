@@ -55,10 +55,18 @@ NGINX
 EB
 --
 
+*wsgi*
+
 ::
 
-      RewriteEngine On
-      RewriteCond %{HTTP:X-Forwarded-Proto} !https
-      RewriteCond %{HTTP_USER_AGENT} !ELB-HealthChecker
-      RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+    RewriteEngine On
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    RewriteCond %{HTTP_USER_AGENT} !ELB-HealthChecker
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 
+*ssl*
+
+::
+
+    RewriteEngine on
+    RewriteRule ^/(.*) http://localhost:8080/VirtualHostBase/http/%{HTTP_HOST}:80/Plone/VirtualHostRoot/$1 [P,L]
