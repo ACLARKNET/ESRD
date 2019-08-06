@@ -71,3 +71,8 @@ EB
     RewriteEngine on
     RewriteRule ^/(.*) http://localhost:8080/\
         VirtualHostBase/http/%{HTTP_HOST}:80/Plone/VirtualHostRoot/$1 [P,L]
+
+
+*/srv*
+
+- https://aws.amazon.com/blogs/devops/customize-ephemeral-and-ebs-volumes-in-elastic-beanstalk-environments/
