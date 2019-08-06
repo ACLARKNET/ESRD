@@ -69,4 +69,5 @@ EB
 ::
 
     RewriteEngine on
-    RewriteRule ^/(.*) http://localhost:8080/VirtualHostBase/http/%{HTTP_HOST}:80/Plone/VirtualHostRoot/$1 [P,L]
+    RewriteRule ^/(.*) http://localhost:8080/\
+        VirtualHostBase/http/%{HTTP_HOST}:80/Plone/VirtualHostRoot/$1 [P,L]
