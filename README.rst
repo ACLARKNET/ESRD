@@ -83,3 +83,12 @@ EB
 ::
 
     aws elasticbeanstalk update-environment --environment-name esrd-env-3 --solution-stack-name "64bit Amazon Linux 2018.03 v2.7.6 running Python 2.7" 
+
+Debug
+-----
+
+To be run after ``eb ssh``.
+
+::
+
+    cd /opt/python/current && source ./env && cd app
