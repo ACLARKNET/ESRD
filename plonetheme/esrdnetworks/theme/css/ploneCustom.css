@@ -35,6 +35,9 @@ body {
 #portal-globalnav li#portaltab-about-us.selected ul.submenu li a:hover {
     background-color: #412C83;
 }
+#portal-globalnav li#portaltab-donate {
+    background-color: #8BC540;
+}
 #portal-column-content {
     background: white;
     /* box-shadow: 12px 0 15px -4px black, -12px 0 8px -4px black; http://stackoverflow.com/a/11997074 */
