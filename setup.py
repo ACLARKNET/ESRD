@@ -4,7 +4,7 @@ import os
 import io
 
 
-VERSION='0.0.4'
+VERSION='0.0.5'
 here = os.path.dirname(__file__)
 
 
