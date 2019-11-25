@@ -35,8 +35,8 @@ body {
 #portal-globalnav li#portaltab-about-us.selected ul.submenu li a:hover {
     background-color: #412C83;
 }
-#portaltab-donate {
-    background-color: #8BC540 !important;
+#portal-globalnav li#portaltab-donate a {
+    background-color: #8BC540;
 }
 #portal-column-content {
     background: white;
