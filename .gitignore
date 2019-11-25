@@ -4,3 +4,15 @@
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 plonetheme.esrdnetworks.egg-info/
+
+.Python
+.installed.cfg
+bin/
+develop-eggs/
+eggs/
+include/
+lib/
+parts/
+plonetheme/__init__.pyc
+plonetheme/esrdnetworks/__init__.pyc
+var/
