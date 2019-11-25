@@ -36,7 +36,7 @@ body {
     background-color: #412C83;
 }
 #portal-globalnav li#portaltab-donate a {
-    background-color: #8BC540;
+    background-color: #8BC540 !important;
 }
 #portal-column-content {
     background: white;
