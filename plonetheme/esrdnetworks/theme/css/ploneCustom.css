@@ -19,24 +19,21 @@ body {
 #portal-globalnav li a:hover {
     background-color: #412C83;
 }
-
+#portal-globalnav li#portaltab-donate a {
+    background-color: #8BC540;
+}
 #portal-globalnav li.selected a:hover {
     background-color: #412C83;
 }
-
 #portal-globalnav li a {
     color: white !important;
     font-size: 125%; 
 }
-
 #portal-globalnav li#portaltab-about-us.selected ul.submenu li a {
     background-color: gray;
 }
 #portal-globalnav li#portaltab-about-us.selected ul.submenu li a:hover {
     background-color: #412C83;
-}
-#portaltab-donate {
-    background-color: #8BC540 !important;
 }
 #portal-column-content {
     background: white;
