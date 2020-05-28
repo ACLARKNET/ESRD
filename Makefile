@@ -12,6 +12,7 @@ include base.mk
 #install: pip-install
 install: plone-install
 #serve: django-serve
+serve: plone-serve
 virtualenv: python-virtualenv-2-7
 
 plone-serve:
