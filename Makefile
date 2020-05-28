@@ -9,5 +9,5 @@ include base.mk
 #PROJECT = project
 #APP = app
 .DEFAULT_GOAL=commit-push
-install: plone-install
+install: pip-install plone-install
 #serve: django-serve

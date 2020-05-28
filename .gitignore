@@ -16,3 +16,4 @@ parts/
 plonetheme/__init__.pyc
 plonetheme/esrdnetworks/__init__.pyc
 var/
+pyvenv.cfg
