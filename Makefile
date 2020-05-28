@@ -13,3 +13,6 @@ include base.mk
 install: plone-install
 #serve: django-serve
 virtualenv: python-virtualenv-2-7
+
+plone-serve:
+	supervisord -e debug -n
