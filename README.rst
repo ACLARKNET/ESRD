@@ -3,6 +3,11 @@ ESRD
 
 .. image:: screenshot.png
 
+Virtualenv
+----------
+
+Requires virtualenv==16.7.10 due to https://github.com/pypa/virtualenv/issues/1638
+
 Ubuntu
 ------
 
