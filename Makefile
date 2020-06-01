@@ -20,5 +20,5 @@ plone-serve:
 	supervisord -e debug -n
 
 sync:
-	rsync -av --partial --progress ec2-user@18.204.10.175:/srv/var/filestorage/ var/filestorage/
-	rsync -av --partial --progress ec2-user@18.204.10.175:/srv/var/blobstorage/ var/blobstorage/
+	rsync -av --partial --progress esrd:/srv/var/filestorage/ var/filestorage/
+	rsync -av --partial --progress esrd:/srv/var/blobstorage/ var/blobstorage/
