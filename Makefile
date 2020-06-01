@@ -16,4 +16,5 @@ serve: plone-serve
 virtualenv: python-virtualenv-2-7
 
 plone-serve:
+	echo "http://0.0.0.0:8080"
 	supervisord -e debug -n
